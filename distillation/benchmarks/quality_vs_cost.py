@@ -177,6 +177,3 @@ def compare_quality_and_cost(config):
     print(f"\nSaved: {csv_path}\nSaved: {fig_path}")
 
     return report
-
-
-exp1_point4_report = report_exp1_point4(config)
