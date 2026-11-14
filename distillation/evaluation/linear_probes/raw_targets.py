@@ -83,7 +83,7 @@ def benchmark_student_vs_gestalt(
 
     report = pd.DataFrame(results)
     scores = report.pivot(index="Property", columns="Source", values="R2")
-    scores = scores[["Student 12", "Student 22", "Gestalt 22"]]
+    scores = scores[["Student-12", "Student-22", "Gestalt-22"]]
     scores["Δ 22−12"] = scores["Student-22"] - scores["Student-12"]
 
     print("\nValidation R² Scores: Student vs. Teacher Embeddings\n")
