@@ -114,12 +114,14 @@ def benchmark_llava(config, splits):
         torch.cuda.empty_cache()
 
         processor = AutoProcessor.from_pretrained(checkpoint)
-        model = AutoModelForImageTextToText.from_pretrained(
-            checkpoint,
-            torch_dtype=torch.bfloat16,
-            device_map="auto",
-            low_cpu_mem_usage=True,
-        ).eval()
+        model = (
+            AutoModelForImageTextToText.from_pretrained(
+                checkpoint,
+                dtype=torch.bfloat16,
+            )
+            .to("cuda")
+            .eval()
+        )
 
         assert all(
             p.device.type == "cuda" for p in model.parameters()
