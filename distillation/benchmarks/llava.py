@@ -9,7 +9,7 @@ from PIL import Image
 from transformers import AutoModelForImageTextToText, AutoProcessor
 
 
-def benchmark_llava_family(config, splits):
+def benchmark_llava(config, splits):
 
     models = {
         "llava_15_7b": "llava-hf/llava-1.5-7b-hf",
