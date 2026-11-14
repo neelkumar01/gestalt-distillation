@@ -38,7 +38,6 @@ def benchmark_clip(config, splits):
     )
     image = np.asarray(images[splits["test"][0]])
 
-    # CLIP visual projection, compatible with Transformers 4.x and 5.x.
     def features(model, x):
         out = model.get_image_features(pixel_values=x)
         if isinstance(out, torch.Tensor):
